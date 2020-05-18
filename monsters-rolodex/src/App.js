@@ -8,6 +8,7 @@ class App extends Component {
     super();
     this.state = {
       monsters: [],
+      puppies: [],
     };
   }
 
@@ -15,6 +16,9 @@ class App extends Component {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((repsonse) => repsonse.json())
       .then((users) => this.setState({ monsters: users }));
+    fetch("https://random.dog/woof.json")
+      .then((Response) => Response.json())
+      .then((pic) => this.setState({ puppies: pic }));
   }
 
   render() {
