@@ -8,37 +8,13 @@ class App extends Component {
     super();
     this.state = {
       catei: [],
-      puppiesImg: [],
     };
   }
 
   componentDidMount() {
-    /*Promise.all([
-      fetch("https://jsonplaceholder.typicode.com/users"),
-      fetch("https://random.dog/woof.json"),
-    ])
-      .then(([res1, res2]) => {
-        return Promise.all([res1.json(), res2.json()]);
-      })
-      .then(([res1, res2]) => {
-        this.setState({ catei: res1 });
-        this.setState({ puppiesImg: res2 });
-      });*/
-
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((repsonse) => repsonse.json())
       .then((users) => {
-        // this.setState({ catei: users });
-        // fetch("https://random.dog/woof.json")
-        //   .then((Response) => Response.json())
-        //   .then((pic) => {
-        //     this.setState({ puppiesImg: pic });
-        //     users.map((user) => {
-        //       user.url = pic.url;
-        //       return user;
-        //     });
-        //     this.setState({ catei: users });
-        //   });
         const fetchArray = [];
         users.forEach(() => {
           fetchArray.push(fetch("https://api.thecatapi.com/v1/images/search"));
