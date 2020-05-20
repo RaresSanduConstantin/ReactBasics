@@ -15,4 +15,8 @@ export const Card = (props) => {
   );
 };
 
-/*`http://place-puppy.com/200x20${props.catel.id - 1}` */
+/*`http://place-puppy.com/200x20${props.catel.id - 1}` 
+
+
+
+*/
