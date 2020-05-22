@@ -3,11 +3,11 @@ import { Card } from "../card/card.component";
 import "./card-list.styles.css";
 
 export const CardList = (props) => {
-  console.log(props);
+  //console.log(props);
   return (
     <div className="card-list">
-      {props.catei.map((catel) => (
-        <Card key={catel.id} catel={catel} />
+      {props.monsters.map((monster) => (
+        <Card key={monster.id} monster={monster} />
       ))}
     </div>
   );

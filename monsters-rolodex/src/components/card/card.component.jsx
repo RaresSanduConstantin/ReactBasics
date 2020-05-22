@@ -4,13 +4,13 @@ export const Card = (props) => {
   return (
     <div className="card-container">
       <p>
-        <img alt="Pisica" src={props.catel.url} />
+        <img alt="Pisica" src={props.monster.url} />
       </p>
 
-      <h3> {props.catel.name} </h3>
-      <p>{props.catel.email}</p>
-      <p>{props.catel.address.city}</p>
-      <p>{props.catel.company.catchPhrase}</p>
+      <h3> {props.monster.name} </h3>
+      <p>{props.monster.email}</p>
+      <p>{props.monster.address.city}</p>
+      <p>{props.monster.company.catchPhrase}</p>
     </div>
   );
 };

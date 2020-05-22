@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { CardList } from "./components/card-list/card-list.component";
+import { SearchBox } from "./components/search-box/search-box.component";
 
 import "./App.css";
 
@@ -7,7 +8,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      catei: [],
+      monsters: [],
+      searchField: "",
     };
   }
 
@@ -28,21 +30,29 @@ class App extends Component {
             return Promise.all(jsonArray);
           })
           .then((imgs) => {
-            console.log(imgs);
+            // console.log(imgs);
             users.map((user, index) => {
               user.url = imgs[index][0].url;
 
               return user;
             });
-            this.setState({ catei: users });
+            this.setState({ monsters: users });
           });
       });
   }
 
   render() {
+    const { monsters, searchField } = this.state;
+    const filteredMonsters = monsters.filter((monster) =>
+      monster.name.toLowerCase().includes(searchField.toLocaleLowerCase())
+    );
     return (
       <div className="App">
-        <CardList puppiesImg={this.state.puppiesImg} catei={this.state.catei} />
+        <SearchBox
+          placeholder="Search a cat!"
+          handleChange={(e) => this.setState({ searchField: e.target.value })}
+        />
+        <CardList monsters={filteredMonsters} />
       </div>
     );
   }
